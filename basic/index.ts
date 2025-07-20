@@ -2,20 +2,20 @@
 
 // union type
 
-let age: string | number; //* age variable allow to String and number "|" = pipe symbols;
-
+let myAge: string | number; //* age variable allow to String and number "|" = pipe symbols;
+myAge = 28;
 //! ----------------------------- array object -----------------------------
 
 // let hobbies: string[] = ["sport", "cooking"];
-let hobbies = ["sport", "cooking"];
+let myHobbies = ["sport", "cooking"];
 
 //! hobbies.push(15); // not allowed
 
 // let users: (string | number)[]; //* users array allow string or number;
 
-let users: Array<string | number>; //* alternative generic type;
+let myUsers: Array<string | number>; //* alternative generic type;
 
-let possibleResult: [number, number]; //* tuple type other example let possibleResult: [number, strings]
+let possibleResults: [number, number]; //* tuple type other example let possibleResult: [number, strings]
 
 //! ----------------------------- object -----------------------------
 
@@ -42,8 +42,24 @@ let user: {
   },
 };
 
-let val: {} = "abc"; //! won't allowed null and undefined value
+let someValue: {} = "abc"; //! won't allowed null and undefined value
 
+// flexible object with built-in typescript Record
 //* here record force to use data is a object and keys are string and values are should string or number
-let data: Record<string, string | number>;
+let SomeData: Record<string, string | number>;
 // data = "abc" //! now you are not allowed to data assign to other value
+
+//! ----------------------------- Enums -----------------------------
+
+// allow some type not others may it's custom type
+enum Role {
+  Admin, //default 0  may custom this value like roleName=1 and other way roleName = "String Value"
+  Editor, // 1
+  Guest, // 2
+}
+
+let userRole: Role = Role.Admin;
+
+// alternative to enum literal type most popular
+
+let updatedRole: "Admin" | "Editor" | "Guest" = "Admin";
