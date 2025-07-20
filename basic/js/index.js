@@ -3,10 +3,10 @@
 var myAge; //* age variable allow to String and number "|" = pipe symbols;
 myAge = 28;
 //! ----------------------------- array object -----------------------------
-// let hobbies: string[] = ["sport", "cooking"];
+var hobbies = ["sport", "cooking"];
 var myHobbies = ["sport", "cooking"];
-//! hobbies.push(15); // not allowed
-// let users: (string | number)[]; //* users array allow string or number;
+// //! hobbies.push(15); // not allowed
+var users; //* users array allow string or number;
 var myUsers; //* alternative generic type;
 var possibleResults; //* tuple type other example let possibleResult: [number, strings]
 //! ----------------------------- object -----------------------------
@@ -27,15 +27,47 @@ var someValue = "abc"; //! won't allowed null and undefined value
 // flexible object with built-in typescript Record
 //* here record force to use data is a object and keys are string and values are should string or number
 var SomeData;
-// data = "abc" //! now you are not allowed to data assign to other value
+// SomeData = "abc"; //! now you are not allowed to data assign to other value
 //! ----------------------------- Enums -----------------------------
 // allow some type not others may it's custom type
-var Role;
-(function (Role) {
-    Role[Role["Admin"] = 0] = "Admin";
-    Role[Role["Editor"] = 1] = "Editor";
-    Role[Role["Guest"] = 2] = "Guest";
-})(Role || (Role = {}));
-var userRole = Role.Admin;
+// enum Role {
+//   Admin, //default 0  may custom this value like roleName=1 and other way roleName = "String Value"
+//   Editor, // 1
+//   Guest, // 2
+// }
+// let userRole: Role = Role.Admin;
 // alternative to enum literal type most popular
 var updatedRole = "Admin";
+//! ----------------------------- function -----------------------------
+// function add(a: number, b: number): number {
+//!   //(ValueType, ValueType):Return Type
+//   return a + b;
+// }
+function add(a, b) {
+    //(ValueType, ValueType):Return Type
+    return a + b;
+}
+// void Function
+function log(message) {
+    //(ValueType):void //!nothing return anythings
+    console.log(message);
+}
+// never return
+function throwError(errMessage) {
+    //(ValueType):never //!nothing return anythings
+    console.log(errMessage);
+    throw new Error(errMessage);
+}
+// in the common javascript function may have a function value, this is common;
+//how to define that
+function jobDone(cb) {
+    //execute the function like express middleware next function
+    cb("this is value!");
+}
+var currentUser = {
+    name: "Polas",
+    age: 28,
+    greet: function () {
+        console.log("this is the void functions");
+    },
+};
