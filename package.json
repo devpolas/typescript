@@ -4,7 +4,7 @@
   "description": "learn typescript",
   "main": "index.js",
   "scripts": {
-    "ts": "tsc basic/index.ts --outFile basic/js/index.js --watch"
+    "basic:ts": "tsc basic/index.ts --outFile basic/js/index.js --watch"
   },
   "keywords": [
     "typescript"
