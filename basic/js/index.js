@@ -71,3 +71,21 @@ var currentUser = {
         console.log("this is the void functions");
     },
 };
+//! ----------------------------- null and undefined -----------------------------
+// combined with union type
+var n;
+var u;
+//disable typescript end add ! symbol
+// option chaining symbol added this sign ?
+//! ----------------------------- unknown -----------------------------
+function digest(val) {
+    if (typeof val === "object" &&
+        !!val &&
+        "log" in val &&
+        typeof val.log === "function") {
+        val.log();
+    }
+}
+//! ----------------------------- nullish -----------------------------
+var x = "";
+var didProvide = x !== null && x !== void 0 ? x : false; // here x in undefined or null return false otherwise return empty string;
