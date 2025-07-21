@@ -120,3 +120,29 @@ const currentUser: User = {
     console.log("this is the void functions");
   },
 };
+
+//! ----------------------------- null and undefined -----------------------------
+// combined with union type
+let n: null | string;
+let u: undefined | string;
+
+//disable typescript end add ! symbol
+// option chaining symbol added this sign ?
+
+//! ----------------------------- unknown -----------------------------
+
+function digest(val: unknown) {
+  if (
+    typeof val === "object" &&
+    !!val &&
+    "log" in val &&
+    typeof val.log === "function"
+  ) {
+    val.log();
+  }
+}
+
+//! ----------------------------- nullish -----------------------------
+
+let x = "";
+const didProvide = x ?? false; // here x in undefined or null return false otherwise return empty string;
